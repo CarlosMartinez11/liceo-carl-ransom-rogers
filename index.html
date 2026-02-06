@@ -22,29 +22,40 @@ body{
   line-height:1.6;
 }
 
-/* ===== HEADER / MENÚ ESTILO APPLE ===== */
+/* ===== HEADER ===== */
 header{
   position:sticky;
   top:0;
   z-index:1000;
-  background:rgba(8,25,114,0.88);
+  background:linear-gradient(
+    180deg,
+    rgba(8,25,114,0.95),
+    rgba(8,25,114,0.85)
+  );
   backdrop-filter:blur(18px);
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:20px 40px; /* más aire para el logo */
+  padding:28px 50px;
 }
 
-/* LOGO MÁS GRANDE Y LEGIBLE */
+/* LOGO MUY GRANDE + INTEGRADO */
 .logo{
-  height:72px;          /* CLAVE: tamaño institucional */
+  height:130px;           /* casi el doble */
   object-fit:contain;
+  filter:drop-shadow(0 6px 18px rgba(0,0,0,.25));
+  transition:transform .3s ease;
+}
+
+.logo:hover{
+  transform:scale(1.03);
+  cursor:pointer;
 }
 
 nav a{
   color:white;
   text-decoration:none;
-  margin-left:30px;
+  margin-left:32px;
   font-weight:600;
   position:relative;
 }
@@ -84,35 +95,6 @@ nav a:hover::after{
   opacity:.95;
 }
 
-.hero-buttons{
-  margin-top:40px;
-}
-
-.btn{
-  display:inline-block;
-  padding:14px 34px;
-  border-radius:30px;
-  margin:10px;
-  font-weight:600;
-  text-decoration:none;
-  transition:.25s;
-}
-
-.btn-primary{
-  background:var(--secundario);
-  color:#081972;
-}
-
-.btn-secondary{
-  background:var(--acento);
-  color:white;
-}
-
-.btn:hover{
-  transform:translateY(-4px);
-  box-shadow:0 14px 35px rgba(0,0,0,.25);
-}
-
 /* ===== SECCIONES ===== */
 section{
   max-width:1200px;
@@ -127,33 +109,6 @@ section h2{
   margin-bottom:60px;
 }
 
-/* ===== CARDS ===== */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:35px;
-}
-
-.card{
-  background:white;
-  padding:34px;
-  border-radius:22px;
-  box-shadow:0 25px 50px rgba(0,0,0,.08);
-  opacity:0;
-  transform:translateY(40px);
-  transition:.6s ease;
-}
-
-.card.show{
-  opacity:1;
-  transform:none;
-}
-
-.card h3{
-  color:var(--acento);
-  margin-top:0;
-}
-
 /* ===== FOOTER ===== */
 footer{
   background:#0a0a0a;
@@ -163,10 +118,10 @@ footer{
   font-size:.9rem;
 }
 
-/* ===== IPAD / MÓVIL ===== */
+/* ===== RESPONSIVE ===== */
 @media(max-width:900px){
-  nav{display:none;}     /* menú limpio en móvil (luego ponemos hamburguesa) */
-  .logo{height:64px;}   /* sigue siendo legible */
+  nav{display:none;}
+  .logo{height:100px;}
   .hero h1{font-size:2.3rem;}
 }
 </style>
@@ -175,8 +130,10 @@ footer{
 <body>
 
 <header>
-  <!-- LOGO GRANDE -->
-  <img src="assets/Logo.png.2" class="logo" alt="Liceo Carl Ransom Rogers">
+  <!-- LOGO CLICKABLE -->
+  <a href="escudo.html">
+    <img src="assets/Logo.png.2" class="logo" alt="Escudo Liceo Carl Ransom Rogers">
+  </a>
 
   <nav>
     <a href="#">Inicio</a>
@@ -192,60 +149,11 @@ footer{
     Un lugar para aprender de por vida y para la vida.  
     Educación humanista, cercana y para todos por igual.
   </p>
-
-  <div class="hero-buttons">
-    <a class="btn btn-primary" href="#">Admisiones</a>
-    <a class="btn btn-secondary" href="#">Próximo Ciclo</a>
-  </div>
-</section>
-
-<section>
-  <h2>Nuestro Enfoque</h2>
-
-  <div class="cards">
-    <div class="card">
-      <h3>Educación Humanista</h3>
-      <p>
-        Inspirados en Carl Ransom Rogers, creemos en el respeto,
-        la empatía y el desarrollo integral del alumno.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Tecnología Apple</h3>
-      <p>
-        Uso consciente de dispositivos Apple y herramientas
-        digitales modernas como Notion.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Comunidad Segura</h3>
-      <p>
-        Un entorno donde cada alumno es valorado,
-        acompañado y escuchado.
-      </p>
-    </div>
-  </div>
 </section>
 
 <footer>
 © 2026 Liceo Carl Ransom Rogers · Educación para la vida
 </footer>
-
-<script>
-/* ANIMACIONES SUAVES AL SCROLL */
-const cards = document.querySelectorAll('.card');
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('show');
-    }
-  });
-},{threshold:.2});
-
-cards.forEach(c=>observer.observe(c));
-</script>
 
 </body>
 </html>
