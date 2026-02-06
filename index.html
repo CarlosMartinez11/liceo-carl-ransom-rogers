@@ -6,81 +6,120 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
+    :root {
+      --azul-principal: #1f3a5f;
+      --azul-secundario: #3a6ea5;
+      --gris-fondo: #f5f7fa;
+      --gris-texto: #4a4a4a;
+      --blanco: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
-      background: #f4f6f9;
-      color: #1d1d1f;
+      background: var(--gris-fondo);
+      color: var(--gris-texto);
     }
 
     header {
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      background: linear-gradient(135deg, var(--azul-principal), var(--azul-secundario));
       color: white;
-      padding: 60px 20px;
+      padding: 80px 20px;
       text-align: center;
     }
 
     header h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
+      font-weight: 700;
     }
 
     header p {
-      font-size: 1.2rem;
-      opacity: 0.9;
+      font-size: 1.3rem;
+      margin-top: 15px;
+      opacity: 0.95;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     nav {
-      background: white;
+      background: var(--blanco);
       display: flex;
       justify-content: center;
-      gap: 30px;
-      padding: 15px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      gap: 35px;
+      padding: 18px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
       position: sticky;
       top: 0;
+      z-index: 10;
     }
 
     nav a {
       text-decoration: none;
-      color: #333;
+      color: var(--azul-principal);
       font-weight: 600;
+      font-size: 1rem;
     }
 
     nav a:hover {
-      color: #2c5364;
+      color: var(--azul-secundario);
     }
 
     .container {
       max-width: 1100px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 70px 20px;
+    }
+
+    .container h2 {
+      color: var(--azul-principal);
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .container p {
+      max-width: 800px;
+      line-height: 1.7;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
     }
 
     .card {
-      background: white;
-      padding: 25px;
-      border-radius: 14px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      background: var(--blanco);
+      padding: 35px;
+      border-radius: 18px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 55px rgba(0,0,0,0.12);
     }
 
     .card h3 {
       margin-top: 0;
-      color: #2c5364;
+      color: var(--azul-secundario);
+      font-size: 1.3rem;
     }
 
     footer {
-      background: #111;
-      color: #aaa;
+      background: #0f1e2e;
+      color: #b5c0cc;
       text-align: center;
-      padding: 30px;
-      margin-top: 60px;
+      padding: 45px 20px;
+      margin-top: 80px;
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -89,43 +128,56 @@
 
 <header>
   <h1>Liceo Carl Ransom Rogers</h1>
-  <p>Formando personas, no solo estudiantes</p>
+  <p>
+    Un lugar para aprender de por vida y para la vida.
+    Educación humanista para todos por igual.
+  </p>
 </header>
 
 <nav>
   <a href="#">Inicio</a>
   <a href="#">Nosotros</a>
-  <a href="#">Oferta Educativa</a>
+  <a href="#">Modelo Educativo</a>
   <a href="#">Contacto</a>
 </nav>
 
 <section class="container">
   <h2>Bienvenidos</h2>
   <p>
-    En el Liceo Carl Ransom Rogers fomentamos el desarrollo integral
-    de nuestros alumnos mediante una educación humana, académica y ética.
+    Inspirados en el pensamiento humanista de Carl Ransom Rogers,
+    en nuestro liceo creemos que cada alumno aprende mejor
+    cuando se siente escuchado, acompañado y valorado.
   </p>
 
   <div class="cards">
     <div class="card">
-      <h3>Educación Integral</h3>
-      <p>Formación académica, emocional y social en un solo modelo educativo.</p>
+      <h3>Modelo Humanista</h3>
+      <p>
+        Acompañamos el desarrollo académico, emocional y social
+        de cada estudiante en un ambiente de respeto y confianza.
+      </p>
     </div>
 
     <div class="card">
-      <h3>Docentes Comprometidos</h3>
-      <p>Equipo capacitado y cercano al alumno.</p>
+      <h3>Tecnología Educativa</h3>
+      <p>
+        Integramos dispositivos Apple y herramientas digitales
+        para potenciar el aprendizaje significativo.
+      </p>
     </div>
 
     <div class="card">
-      <h3>Ambiente Seguro</h3>
-      <p>Espacios diseñados para el aprendizaje y bienestar.</p>
+      <h3>Comunidad Educativa</h3>
+      <p>
+        Familias, docentes y alumnos trabajando juntos
+        para formar personas íntegras y responsables.
+      </p>
     </div>
   </div>
 </section>
 
 <footer>
-  © 2026 Liceo Carl Ransom Rogers · Todos los derechos reservados
+  © 2026 Liceo Carl Ransom Rogers · Educación Humanista
 </footer>
 
 </body>
