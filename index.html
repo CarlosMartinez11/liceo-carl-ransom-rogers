@@ -1,1 +1,132 @@
-home incial -Liceo Carl Ransom Rogers
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Liceo Carl Ransom Rogers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
+      background: #f4f6f9;
+      color: #1d1d1f;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    nav {
+      background: white;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #2c5364;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #2c5364;
+    }
+
+    footer {
+      background: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 30px;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Liceo Carl Ransom Rogers</h1>
+  <p>Formando personas, no solo estudiantes</p>
+</header>
+
+<nav>
+  <a href="#">Inicio</a>
+  <a href="#">Nosotros</a>
+  <a href="#">Oferta Educativa</a>
+  <a href="#">Contacto</a>
+</nav>
+
+<section class="container">
+  <h2>Bienvenidos</h2>
+  <p>
+    En el Liceo Carl Ransom Rogers fomentamos el desarrollo integral
+    de nuestros alumnos mediante una educación humana, académica y ética.
+  </p>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Educación Integral</h3>
+      <p>Formación académica, emocional y social en un solo modelo educativo.</p>
+    </div>
+
+    <div class="card">
+      <h3>Docentes Comprometidos</h3>
+      <p>Equipo capacitado y cercano al alumno.</p>
+    </div>
+
+    <div class="card">
+      <h3>Ambiente Seguro</h3>
+      <p>Espacios diseñados para el aprendizaje y bienestar.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Liceo Carl Ransom Rogers · Todos los derechos reservados
+</footer>
+
+</body>
+</html>
