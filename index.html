@@ -46,9 +46,9 @@ header {
 }
 
 .logo {
-  height: 80px;
+  height: 110px;
   object-fit: contain;
-  filter: drop-shadow(0 4px 12px rgba(0,0,0,.3));
+  filter: drop-shadow(0 6px 20px rgba(0,0,0,.4));
   transition: transform .3s ease;
 }
 .logo:hover { transform: scale(1.04); cursor: pointer; }
@@ -103,29 +103,7 @@ nav a.active { background: var(--secundario); color: var(--principal); }
 }
 .hero-inner { position: relative; z-index: 2; max-width: 900px; }
 
-/* Texto fantasma detrás del título */
-.hero-ghost {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: 'Atma', cursive;
-  font-weight: 700;
-  font-size: clamp(4rem, 12vw, 11rem);
-  text-transform: uppercase;
-  white-space: nowrap;
-  color: rgba(255,255,255,0.04);
-  -webkit-text-stroke: 2px rgba(154,223,9,0.18);
-  text-shadow:
-    3px 3px 0px rgba(0,0,0,0.5),
-    6px 6px 0px rgba(0,0,0,0.3),
-    10px 10px 20px rgba(0,0,0,0.2);
-  letter-spacing: 0.06em;
-  pointer-events: none;
-  z-index: 1;
-  user-select: none;
-  line-height: 1;
-}
+
 
 .hero-badge {
   display: inline-block;
@@ -174,7 +152,7 @@ nav a.active { background: var(--secundario); color: var(--principal); }
   color: rgba(255,255,255,0.72);
   margin: 22px auto 44px;
   max-width: 600px;
-  line-height: 1.8;
+  line-height: 1.35;
   animation: fadeDown 1s ease 0.2s both;
 }
 
@@ -655,7 +633,6 @@ footer { background: #07103d; color: rgba(255,255,255,0.5); padding: 60px 40px 3
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-ghost">Carl Ransom Rogers</div>
   <div class="hero-inner">
     <div class="hero-badge">Arteaga, Coahuila &nbsp;&middot;&nbsp; Empowered by Knotion</div>
     <h1>
