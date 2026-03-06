@@ -229,7 +229,7 @@ nav a.active { background: var(--secundario); color: var(--principal); }
 .stat-item { color: white; padding: 10px; }
 .stat-num {
   font-family: 'Atma', cursive;
-  font-size: 2.8rem;
+  font-size: 5rem;
   font-weight: 700;
   color: var(--secundario);
   line-height: 1;
@@ -276,50 +276,141 @@ nav a.active { background: var(--secundario); color: var(--principal); }
   line-height: 1.8;
 }
 
-/* ===== PILARES ===== */
-.pilares { max-width: 1200px; margin: auto; padding: 110px 20px; }
-
-.pilares-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
+/* ===== CARRUSEL ===== */
+.carrusel-section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 100px 20px;
 }
 
-.pilar-card {
-  background: white;
-  border-radius: 20px;
-  padding: 38px 30px;
-  box-shadow: 0 4px 28px rgba(8,25,114,0.06);
+.carrusel-wrapper {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 60px rgba(8,25,114,0.15);
+  background: #0a0a1a;
+  aspect-ratio: 16/7;
+}
+
+.carrusel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carrusel-slide {
+  min-width: 100%;
+  height: 100%;
   position: relative;
   overflow: hidden;
-  transition: transform .3s, box-shadow .3s;
-}
-.pilar-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: var(--color, var(--principal));
-}
-.pilar-card:hover { transform: translateY(-6px); box-shadow: 0 14px 44px rgba(8,25,114,0.12); }
-
-.pilar-line {
-  width: 32px; height: 3px;
-  background: var(--color, var(--principal));
-  border-radius: 2px;
-  margin-bottom: 22px;
 }
 
-.pilar-card h3 {
-  font-size: 1rem;
-  color: var(--principal);
-  margin-bottom: 12px;
+.carrusel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
-.pilar-card p {
+
+/* Placeholder cuando no hay foto */
+.carrusel-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0d1a5e, #081972);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: rgba(255,255,255,0.3);
+}
+.carrusel-placeholder svg {
+  width: 56px; height: 56px;
+  stroke: rgba(154,223,9,0.3);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.carrusel-placeholder p {
   font-family: 'Poppins', sans-serif;
-  font-size: 0.86rem;
-  color: #666;
-  line-height: 1.7;
+  font-size: 0.84rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Flechas */
+.carrusel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(8,25,114,0.7);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: white;
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .3s, transform .3s;
+  backdrop-filter: blur(8px);
+}
+.carrusel-btn:hover {
+  background: var(--principal);
+  transform: translateY(-50%) scale(1.08);
+}
+.carrusel-btn svg {
+  width: 22px; height: 22px;
+  stroke: white;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.carrusel-prev { left: 20px; }
+.carrusel-next { right: 20px; }
+
+/* Dots */
+.carrusel-dots {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+.carrusel-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  cursor: pointer;
+  transition: background .3s, transform .3s;
+  border: none;
+  padding: 0;
+}
+.carrusel-dot.active {
+  background: var(--secundario);
+  transform: scale(1.3);
+}
+
+/* Contador */
+.carrusel-counter {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.6);
+  background: rgba(0,0,0,0.35);
+  padding: 5px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+  z-index: 10;
+  letter-spacing: 0.05em;
 }
 
 /* ===== KNOTION BANNER ===== */
@@ -671,44 +762,75 @@ footer { background: #07103d; color: rgba(255,255,255,0.5); padding: 60px 40px 3
   </div>
 </div>
 
-<!-- PILARES -->
-<section class="pilares">
+<!-- CARRUSEL -->
+<section class="carrusel-section">
   <div class="section-header">
-    <span class="section-tag">Por qué elegirnos</span>
-    <h2>Una educación que transforma vidas</h2>
-    <p>Creemos en cada estudiante como ser único, con potencialidades que guían todo nuestro quehacer educativo.</p>
+    <span class="section-tag">Nuestra comunidad</span>
+    <h2>Vida en el liceo</h2>
+    <p>Momentos que reflejan nuestra comunidad educativa.</p>
   </div>
-  <div class="pilares-grid">
-    <div class="pilar-card" style="--color:#081972">
-      <div class="pilar-line"></div>
-      <h3>Respeto a la Individualidad</h3>
-      <p>Cada alumno aprende a su ritmo, con rutas personalizadas que desarrollan su máximo potencial sin comparaciones.</p>
+
+  <div class="carrusel-wrapper">
+
+    <!-- Contador -->
+    <div class="carrusel-counter" id="carruselCounter">1 / 5</div>
+
+    <!-- Track con slides -->
+    <div class="carrusel-track" id="carruselTrack">
+
+      <!-- Slide 1 — reemplaza src con tu foto real -->
+      <div class="carrusel-slide">
+        <div class="carrusel-placeholder">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+          <p>Agrega tu foto aquí — slide 1</p>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carrusel-slide">
+        <div class="carrusel-placeholder">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+          <p>Agrega tu foto aquí — slide 2</p>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carrusel-slide">
+        <div class="carrusel-placeholder">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+          <p>Agrega tu foto aquí — slide 3</p>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="carrusel-slide">
+        <div class="carrusel-placeholder">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+          <p>Agrega tu foto aquí — slide 4</p>
+        </div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="carrusel-slide">
+        <div class="carrusel-placeholder">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg>
+          <p>Agrega tu foto aquí — slide 5</p>
+        </div>
+      </div>
+
     </div>
-    <div class="pilar-card" style="--color:#9ADF09">
-      <div class="pilar-line"></div>
-      <h3>Aprendizaje Colaborativo</h3>
-      <p>El conocimiento se construye en comunidad, fortaleciendo el trabajo en equipo, liderazgo y comunicación asertiva.</p>
-    </div>
-    <div class="pilar-card" style="--color:#FF670B">
-      <div class="pilar-line"></div>
-      <h3>Innovación y Pensamiento Crítico</h3>
-      <p>Formamos estudiantes capaces de adaptarse, crear y proponer soluciones en un mundo en constante cambio.</p>
-    </div>
-    <div class="pilar-card" style="--color:#0f8c4a">
-      <div class="pilar-line"></div>
-      <h3>Compromiso con la Comunidad</h3>
-      <p>Proyectos de impacto social y ambiental que desarrollan conciencia activa sobre derechos y responsabilidades globales.</p>
-    </div>
-    <div class="pilar-card" style="--color:#8b1a9e">
-      <div class="pilar-line"></div>
-      <h3>Conciencia de Sí Mismo</h3>
-      <p>Inteligencia emocional como eje transversal, cultivando autoconocimiento, empatía y habilidades de convivencia sana.</p>
-    </div>
-    <div class="pilar-card" style="--color:#c47a00">
-      <div class="pilar-line"></div>
-      <h3>Tecnología con Propósito</h3>
-      <p>El iPad como herramienta de aprendizaje gestionada profesionalmente, equilibrada con dinámicas presenciales y colaborativas.</p>
-    </div>
+
+    <!-- Flechas -->
+    <button class="carrusel-btn carrusel-prev" onclick="moverCarrusel(-1)" aria-label="Anterior">
+      <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+    </button>
+    <button class="carrusel-btn carrusel-next" onclick="moverCarrusel(1)" aria-label="Siguiente">
+      <svg viewBox="0 0 24 24"><polyline points="9,18 15,12 9,6"/></svg>
+    </button>
+
+    <!-- Dots -->
+    <div class="carrusel-dots" id="carruselDots"></div>
+
   </div>
 </section>
 
@@ -837,3 +959,64 @@ footer { background: #07103d; color: rgba(255,255,255,0.5); padding: 60px 40px 3
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/sc
+<script>
+  // ===== MENÚ MÓVIL =====
+  function openMobile() {
+    document.getElementById('mobileMenu').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobile() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // ===== CARRUSEL =====
+  const totalSlides = document.querySelectorAll('.carrusel-slide').length;
+  let current = 0;
+  let autoplay;
+
+  const dotsContainer = document.getElementById('carruselDots');
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement('button');
+    dot.classList.add('carrusel-dot');
+    if (i === 0) dot.classList.add('active');
+    dot.setAttribute('aria-label', 'Ir a slide ' + (i + 1));
+    dot.addEventListener('click', () => { irA(i); reiniciarAutoplay(); });
+    dotsContainer.appendChild(dot);
+  }
+
+  function actualizarUI() {
+    document.getElementById('carruselTrack').style.transform = 'translateX(-' + (current * 100) + '%)';
+    document.getElementById('carruselCounter').textContent = (current + 1) + ' / ' + totalSlides;
+    document.querySelectorAll('.carrusel-dot').forEach(function(d, i) {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  function irA(index) {
+    current = (index + totalSlides) % totalSlides;
+    actualizarUI();
+  }
+
+  function moverCarrusel(dir) {
+    irA(current + dir);
+    reiniciarAutoplay();
+  }
+
+  function reiniciarAutoplay() {
+    clearInterval(autoplay);
+    autoplay = setInterval(function() { irA(current + 1); }, 4000);
+  }
+
+  reiniciarAutoplay();
+
+  var touchStartX = 0;
+  var track = document.getElementById('carruselTrack');
+  track.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; });
+  track.addEventListener('touchend', function(e) {
+    var diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) { moverCarrusel(diff > 0 ? 1 : -1); }
+  });
+</script>
+</body>
+</html>
