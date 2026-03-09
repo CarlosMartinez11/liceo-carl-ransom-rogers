@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Liceo Carl Ransom Rogers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Atma:wght@700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --principal: #081972;
+  --secundario: #9ADF09;
+  --acento: #FF670B;
+  --claro: #f4f6fb;
+  --blanco: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--claro);
+  color: #1d1d1f;
+  overflow-x: hidden;
+}
+
+/* Todos los títulos usan Atma en mayúsculas */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Atma', cursive;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(8, 25, 114, 0.97);
+  backdrop-filter: blur(18px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 50px;
+  box-shadow: 0 2px 20px rgba(8,25,114,0.3);
+}
+
+.logo {
+  height: 110px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 20px rgba(0,0,0,.4));
+  transition: transform .3s ease;
+}
+.logo:hover { transform: scale(1.04); cursor: pointer; }
+
+nav { display: flex; align-items: center; gap: 8px; }
+
+nav a {
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  text-decoration: none;
+  margin-left: 8px;
+  font-weight: 600;
+  font-size: 0.78rem;
+  padding: 8px 18px;
+  border-radius: 25px;
+  transition: background .3s, color .3s;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+nav a:hover { background: var(--secundario); color: var(--principal); }
+nav a.active { background: var(--secundario); color: var(--principal); }
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #040d40 0%, #081972 50%, #0a2494 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 60px 20px;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(154,223,9,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 30%, rgba(255,103,11,0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -150px; right: -150px;
+  width: 600px; height: 600px;
+  border: 1px solid rgba(154,223,9,0.1);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 2; max-width: 900px; }
+
+
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(154,223,9,0.12);
+  border: 1px solid rgba(154,223,9,0.35);
+  color: var(--secundario);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 7px 22px;
+  border-radius: 20px;
+  margin-bottom: 32px;
+  animation: fadeDown 0.8s ease both;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  color: white;
+  line-height: 1.08;
+  margin-bottom: 14px;
+  animation: fadeDown 0.9s ease 0.1s both;
+  -webkit-text-stroke: 2px rgba(255,255,255,0.6);
+  text-shadow:
+    0 0 0 white,
+    4px 4px 0px rgba(0,0,0,0.6),
+    6px 6px 0px rgba(0,0,0,0.35),
+    0 8px 32px rgba(0,0,0,0.5);
+  paint-order: stroke fill;
+}
+.hero h1 span {
+  color: var(--secundario);
+  display: block;
+  -webkit-text-stroke: 2px rgba(154,223,9,0.7);
+  text-shadow:
+    4px 4px 0px rgba(0,0,0,0.6),
+    6px 6px 0px rgba(0,0,0,0.35),
+    0 8px 32px rgba(0,0,0,0.5);
+}
+
+.hero-lema {
+  font-family: 'Poppins', sans-serif;
+  font-style: italic;
+  font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+  color: rgba(255,255,255,0.72);
+  margin: 22px auto 44px;
+  max-width: 600px;
+  line-height: 1.35;
+  animation: fadeDown 1s ease 0.2s both;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeDown 1s ease 0.35s both;
+}
+
+.btn-primary {
+  font-family: 'Poppins', sans-serif;
+  background: var(--secundario);
+  color: var(--principal);
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 15px 36px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: transform .3s, box-shadow .3s;
+  box-shadow: 0 4px 24px rgba(154,223,9,0.3);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(154,223,9,0.45); }
+
+.btn-secondary {
+  font-family: 'Poppins', sans-serif;
+  background: transparent;
+  color: white;
+  font-weight: 600;
+  font-size: 0.78rem;
+  padding: 15px 36px;
+  border-radius: 30px;
+  text-decoration: none;
+  border: 2px solid rgba(255,255,255,0.35);
+  transition: border-color .3s, background .3s;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.07); }
+
+.scroll-down {
+  position: absolute;
+  bottom: 36px; left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Poppins', sans-serif;
+  color: rgba(255,255,255,0.3);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  animation: bounce 2.5s infinite;
+}
+.scroll-down::after {
+  content: '';
+  width: 1px; height: 44px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+}
+
+/* ===== STATS ===== */
+.stats {
+  background: var(--principal);
+  padding: 44px 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  text-align: center;
+}
+.stat-item { color: white; padding: 10px; }
+.stat-num {
+  font-family: 'Atma', cursive;
+  font-size: 5rem;
+  font-weight: 700;
+  color: var(--secundario);
+  line-height: 1;
+  display: block;
+}
+.stat-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.68rem;
+  opacity: 0.6;
+  margin-top: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ===== SECCIÓN GENÉRICA ===== */
+.section-header { text-align: center; margin-bottom: 72px; }
+
+.section-tag {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  background: rgba(8,25,114,0.07);
+  color: var(--principal);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+.section-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--principal);
+  margin-bottom: 18px;
+  line-height: 1.15;
+}
+.section-header p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.96rem;
+  color: #666;
+  max-width: 560px;
+  margin: auto;
+  line-height: 1.8;
+}
+
+/* ===== CARRUSEL ===== */
+.carrusel-section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 100px 20px;
+}
+
+.carrusel-wrapper {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 60px rgba(8,25,114,0.15);
+  background: #0a0a1a;
+  aspect-ratio: 16/7;
+}
+
+.carrusel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carrusel-slide {
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.carrusel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.carrusel-slide iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+  pointer-events: none;
+}
+.carrusel-slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #000;
+}
+
+/* Placeholder cuando no hay video */
+.carrusel-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0d1a5e, #081972);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: rgba(255,255,255,0.3);
+}
+.carrusel-placeholder svg {
+  width: 56px; height: 56px;
+  stroke: rgba(154,223,9,0.3);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.carrusel-placeholder p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.84rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Flechas */
+.carrusel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(8,25,114,0.7);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: white;
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .3s, transform .3s;
+  backdrop-filter: blur(8px);
+}
+.carrusel-btn:hover {
+  background: var(--principal);
+  transform: translateY(-50%) scale(1.08);
+}
+.carrusel-btn svg {
+  width: 22px; height: 22px;
+  stroke: white;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.carrusel-prev { left: 20px; }
+.carrusel-next { right: 20px; }
+
+/* Dots */
+.carrusel-dots {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+.carrusel-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  cursor: pointer;
+  transition: background .3s, transform .3s;
+  border: none;
+  padding: 0;
+}
+.carrusel-dot.active {
+  background: var(--secundario);
+  transform: scale(1.3);
+}
+
+/* Contador */
+.carrusel-counter {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.6);
+  background: rgba(0,0,0,0.35);
+  padding: 5px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+  z-index: 10;
+  letter-spacing: 0.05em;
+}
+
+/* ===== KNOTION BANNER ===== */
+.knotion-banner {
+  background: linear-gradient(135deg, #081972, #0f2ba8);
+  padding: 90px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.knotion-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(154,223,9,0.07) 0%, transparent 70%);
+}
+.knotion-banner-inner { position: relative; z-index: 2; max-width: 800px; margin: auto; }
+
+.knotion-banner h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: white;
+  margin-bottom: 22px;
+}
+.knotion-banner h2 span { color: var(--secundario); }
+
+.knotion-banner p {
+  font-family: 'Poppins', sans-serif;
+  font-style: italic;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.96rem;
+  line-height: 1.85;
+  margin-bottom: 40px;
+}
+
+.knotion-chips { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px; }
+
+.chip {
+  font-family: 'Poppins', sans-serif;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.85);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 20px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ===== NIVELES ===== */
+.niveles { max-width: 1200px; margin: auto; padding: 110px 20px; }
+
+.niveles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  margin-top: 64px;
+}
+
+.nivel-card {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 6px 36px rgba(8,25,114,0.1);
+  transition: transform .3s;
+}
+.nivel-card:hover { transform: translateY(-6px); }
+
+.nivel-header { padding: 40px 30px 30px; color: white; }
+.nivel-card:nth-child(1) .nivel-header { background: linear-gradient(135deg, #081972, #1a35c8); }
+.nivel-card:nth-child(2) .nivel-header { background: linear-gradient(135deg, #0f5e1f, #1a9e32); }
+.nivel-card:nth-child(3) .nivel-header { background: linear-gradient(135deg, #7a1000, #cc2200); }
+
+.nivel-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin-bottom: 10px;
+  display: block;
+}
+.nivel-header h3 { font-size: 1.8rem; margin-bottom: 12px; }
+.nivel-header p {
+  font-family: 'Poppins', sans-serif;
+  font-style: italic;
+  font-size: 0.86rem;
+  opacity: 0.82;
+  line-height: 1.65;
+}
+
+.nivel-body { background: white; padding: 28px 30px; }
+.nivel-body ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.nivel-body ul li {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.84rem;
+  color: #444;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  line-height: 1.5;
+}
+.nivel-body ul li::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--secundario);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+/* ===== CTA CONTACTO ===== */
+.cta-contacto { background: var(--claro); padding: 110px 20px; text-align: center; }
+.cta-box {
+  max-width: 680px;
+  margin: auto;
+  background: white;
+  border-radius: 28px;
+  padding: 64px 48px;
+  box-shadow: 0 8px 48px rgba(8,25,114,0.09);
+}
+.cta-box h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--principal); margin-bottom: 18px; }
+.cta-box p {
+  font-family: 'Poppins', sans-serif;
+  color: #777;
+  font-size: 0.94rem;
+  line-height: 1.8;
+  margin-bottom: 36px;
+}
+
+.cta-contactos { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
+
+.contacto-item {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(8,25,114,0.05);
+  padding: 13px 22px;
+  border-radius: 14px;
+  font-size: 0.82rem;
+  color: var(--principal);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background .3s;
+  letter-spacing: 0.02em;
+}
+.contacto-item:hover { background: rgba(8,25,114,0.1); }
+.contacto-item svg {
+  width: 16px; height: 16px;
+  fill: none;
+  stroke: var(--principal);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+
+
+/* ===== FOOTER ===== */
+footer { background: #07103d; color: rgba(255,255,255,0.5); padding: 60px 40px 32px; }
+
+.footer-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.footer-brand p {
+  font-family: 'Poppins', sans-serif;
+  font-style: italic;
+  font-size: 0.84rem;
+  line-height: 1.8;
+  margin-top: 20px;
+  max-width: 280px;
+}
+.footer-col h4 {
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.footer-col a, .footer-col p {
+  font-family: 'Poppins', sans-serif;
+  display: block;
+  color: rgba(255,255,255,0.45);
+  font-size: 0.82rem;
+  text-decoration: none;
+  margin-bottom: 12px;
+  transition: color .3s;
+  line-height: 1.5;
+}
+.footer-col a:hover { color: var(--secundario); }
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 30px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.74rem;
+  flex-wrap: wrap;
+  gap: 12px;
+  letter-spacing: 0.04em;
+}
+.footer-logo { height: 64px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4)); }
+.knotion-badge {
+  font-family: 'Poppins', sans-serif;
+  color: rgba(255,255,255,0.35);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.knotion-badge span { color: var(--secundario); }
+
+/* ===== HAMBURGUESA ===== */
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+.hamburger span { width: 26px; height: 2px; background: white; border-radius: 2px; transition: .3s; }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(8,25,114,0.99);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: 'Atma', cursive;
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  transition: color .3s;
+}
+.mobile-menu a:hover { color: var(--secundario); }
+.mobile-close {
+  position: absolute;
+  top: 24px; right: 28px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(10px); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  header { padding: 14px 24px; }
+  nav { display: none; }
+  .hamburger { display: flex; }
+  .stats { padding: 32px 20px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+@media (max-width: 600px) {
+  .cta-box { padding: 40px 24px; }
+  .hero-btns { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- MENÚ MÓVIL -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobile()">&#x2715;</button>
+  <a href="index.html" onclick="closeMobile()">Inicio</a>
+  <a href="nosotros.html" onclick="closeMobile()">Nosotros</a>
+  <a href="modelo.html" onclick="closeMobile()">Modelo Educativo</a>
+  <a href="comunidad.html" onclick="closeMobile()">Manada&reg;</a>
+  <a href="contacto.html" onclick="closeMobile()">Contacto</a>
+</div>
+
+<!-- HEADER -->
+<header>
+  <a href="index.html">
+    <img src="assets/Escudo SF.png" class="logo" alt="Liceo Carl Ransom Rogers">
+  </a>
+  <nav>
+    <a href="index.html" class="active">Inicio</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="modelo.html">Modelo Educativo</a>
+    <a href="comunidad.html">Manada&reg;</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+  <div class="hamburger" onclick="openMobile()">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Empowered by Knotion&reg;</div>
+    <h1>
+      Liceo Carl
+      <span>Ransom Rogers</span>
+    </h1>
+    <p class="hero-lema">
+      Un lugar para aprender de por vida y para la vida.<br>
+      Educación humanista, cercana y para todos por igual.
+    </p>
+    <div class="hero-btns">
+      <a href="nosotros.html" class="btn-primary">Conócenos</a>
+      <a href="modelo.html" class="btn-secondary">Modelo Educativo</a>
+    </div>
+  </div>
+  <div class="scroll-down">Descubre más</div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat-item">
+    <span class="stat-num">3</span>
+    <span class="stat-label">Niveles educativos</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">5</span>
+    <span class="stat-label">Valores institucionales</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">8</span>
+    <span class="stat-label">Global Issues Knotion</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">100%</span>
+    <span class="stat-label">Enfoque en el alumno</span>
+  </div>
+</div>
+
+<!-- CARRUSEL -->
+<section class="carrusel-section">
+  <div class="section-header">
+    <span class="section-tag">Conoce el Liceo</span>
+    <h2>Descubre nuestra propuesta</h2>
+    <p>Formación integral, tecnología de vanguardia y una comunidad que inspira a cada alumno a dar lo mejor de sí.</p>
+  </div>
+
+  <div class="carrusel-wrapper">
+
+    <!-- Contador -->
+    <div class="carrusel-counter" id="carruselCounter">1 / 4</div>
+
+    <!-- Track con slides de video YouTube -->
+    <div class="carrusel-track" id="carruselTrack">
+      <div class="carrusel-slide active"><div id="ytplayer0"></div></div>
+      <div class="carrusel-slide"><div id="ytplayer1"></div></div>
+      <div class="carrusel-slide"><div id="ytplayer2"></div></div>
+      <div class="carrusel-slide"><div id="ytplayer3"></div></div>
+    </div>
+
+    <!-- Flechas -->
+    <button class="carrusel-btn carrusel-prev" onclick="moverCarrusel(-1)" aria-label="Anterior">
+      <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+    </button>
+    <button class="carrusel-btn carrusel-next" onclick="moverCarrusel(1)" aria-label="Siguiente">
+      <svg viewBox="0 0 24 24"><polyline points="9,18 15,12 9,6"/></svg>
+    </button>
+
+    <!-- Dots -->
+    <div class="carrusel-dots" id="carruselDots"></div>
+
+  </div>
+</section>
+
+<!-- KNOTION BANNER -->
+<section class="knotion-banner">
+  <div class="knotion-banner-inner">
+    <h2>Empowered by <span>Knotion&reg;</span></h2>
+    <p>
+      La implementación del modelo Knotion en el Liceo Carl Ransom Rogers no es solo una actualización tecnológica: es una declaración de principios. Garantizamos que nuestros valores sean vividos, no solo enunciados, en cada sesión y proyecto de aprendizaje.
+    </p>
+    <div class="knotion-chips">
+      <span class="chip">Impact Learning Model</span>
+      <span class="chip">Inner Kore</span>
+      <span class="chip">Outer Kore</span>
+      <span class="chip">Global Issues</span>
+      <span class="chip">Alineado con SEP</span>
+      <span class="chip">Estándares Internacionales</span>
+    </div>
+    <a href="modelo.html" class="btn-primary">Ver Modelo Educativo completo</a>
+  </div>
+</section>
+
+
+
+<!-- NIVELES -->
+<section class="niveles">
+  <div class="section-header">
+    <span class="section-tag">Oferta educativa</span>
+    <h2>Formamos en cada etapa</h2>
+    <p>Desde preescolar hasta secundaria, acompañamos el crecimiento de cada estudiante con metodologías adaptadas a su desarrollo.</p>
+  </div>
+  <div class="niveles-grid">
+    <div class="nivel-card">
+      <div class="nivel-header">
+        <span class="nivel-label">Nivel</span>
+        <h3>Preescolar</h3>
+        <p>Global Journey: un viaje cultural por el mundo que despierta la curiosidad desde los primeros años.</p>
+      </div>
+      <div class="nivel-body">
+        <ul>
+          <li>Ecosistema bilingüe e interactivo</li>
+          <li>Modelo FAS de alfabetización</li>
+          <li>4 campos formativos SEP</li>
+          <li>K1, K2 y K3 con perspectiva global</li>
+        </ul>
+      </div>
+    </div>
+    <div class="nivel-card">
+      <div class="nivel-header">
+        <span class="nivel-label">Nivel</span>
+        <h3>Primaria</h3>
+        <p>Actividades inmersivas donde el maestro actúa como coach multidisciplinario en torno a retos globales.</p>
+      </div>
+      <div class="nivel-body">
+        <ul>
+          <li>8 proyectos anuales — Global Issues</li>
+          <li>Expresión en inglés integrada</li>
+          <li>DreamBox, Scholastic y MARSA</li>
+          <li>Pensamiento matemático activo</li>
+        </ul>
+      </div>
+    </div>
+    <div class="nivel-card">
+      <div class="nivel-header">
+        <span class="nivel-label">Nivel</span>
+        <h3>Secundaria</h3>
+        <p>Materias transversales para resolver retos comunes con mayor profundidad y pensamiento crítico.</p>
+      </div>
+      <div class="nivel-body">
+        <ul>
+          <li>Global Issues con mayor complejidad</li>
+          <li>Resolución de retos reales</li>
+          <li>Habilidades del siglo XXI</li>
+          <li>Preparación para la vida</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA CONTACTO -->
+<section class="cta-contacto">
+  <div class="cta-box">
+    <h2>Agenda una visita</h2>
+    <p>Estamos en Arteaga, Coahuila. Contáctanos por teléfono o correo y con gusto te atendemos.</p>
+    <div class="cta-contactos">
+      <a href="tel:8446576124" class="contacto-item">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>(844) 657-61-24</span>
+      </a>
+      <a href="/cdn-cgi/l/email-protection#264a4f454349544941435455664e49524b474f4a0845494b" class="contacto-item">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span><span class="__cf_email__" data-cfemail="1a7673797f7568757d7f68695a72756e777b737634797577">[email&#160;protected]</span></span>
+      </a>
+    </div>
+    <a href="contacto.html" class="btn-primary">Ver información de contacto</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/Escudo SF.png" class="footer-logo" alt="Liceo Carl Ransom Rogers">
+      <p>Somos una institución que crea y promueve situaciones de aprendizaje para favorecer el desarrollo integral de las personas, permitiéndoles transformar creativamente la realidad.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegación</h4>
+      <a href="index.html">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="modelo.html">Modelo Educativo</a>
+      <a href="comunidad.html">Manada&reg;</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <p>(844) 657-61-24 &mdash; Oficina</p>
+      <p>(844) 293-40-35 &mdash; Dirección</p>
+      <p>(844) 506-74-29 &mdash; Administrativos</p>
+      <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d6babfb5b3b9a4b9b1b3a4a596beb9a2bbb7bfbaf8b5b9bb">[email&#160;protected]</a></p>
+      <p>Arteaga, Coahuila</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2012 Liceo Carl Ransom Rogers &nbsp;&middot;&nbsp; Educación para la vida</span>
+    <div class="knotion-badge">EMPOWERED BY &nbsp;<span>KNOTION&reg;</span></div>
+  </div>
+</footer>
+
+<script>
+  function openMobile() {
+    document.getElementById('mobileMenu').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobile() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // ===== CARRUSEL YOUTUBE PLAYER API =====
+  var VIDEO_IDS = ['4qBuU7xSNME','GLwh1AVs1Rs','4JiIrjj9mGA','6G1xjgjBp38'];
+  var players = [];
+  var slides, dots, current = 0;
+
+  // Cargar YouTube IFrame API
+  var ytTag = document.createElement('script');
+  ytTag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(ytTag);
+
+  function onYouTubeIframeAPIReady() {
+    VIDEO_IDS.forEach(function(id, i) {
+      players[i] = new YT.Player('ytplayer' + i, {
+        videoId: id,
+        playerVars: {
+          autoplay: i === 0 ? 1 : 0,
+          controls: 1,
+          rel: 0,
+          modestbranding: 1,
+          playsinline: 1
+        },
+        events: {
+          onReady: function(e) {
+            if (i === 0) {
+              e.target.mute();
+              e.target.playVideo();
+            }
+          },
+          onStateChange: function(e) {
+            if (e.data === YT.PlayerState.ENDED) {
+              irA(current + 1);
+            }
+          }
+        }
+      });
+    });
+
+    slides = document.querySelectorAll('.carrusel-slide');
+    var dotsContainer = document.getElementById('carruselDots');
+    dotsContainer.innerHTML = '';
+    slides.forEach(function(_, i) {
+      var d = document.createElement('button');
+      d.className = 'carrusel-dot' + (i === 0 ? ' active' : '');
+      d.onclick = (function(n){ return function(){ irA(n); }; })(i);
+      dotsContainer.appendChild(d);
+    });
+    dots = dotsContainer.querySelectorAll('.carrusel-dot');
+    actualizarContador();
+  }
+
+  function actualizarContador() {
+    var c = document.getElementById('carruselCounter');
+    if (c) c.textContent = (current + 1) + ' / ' + VIDEO_IDS.length;
+  }
+
+  function irA(n) {
+    if (players[current] && players[current].pauseVideo) players[current].pauseVideo();
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (n + VIDEO_IDS.length) % VIDEO_IDS.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+    document.getElementById('carruselTrack').style.transform = 'translateX(-' + (current * 100) + '%)';
+    actualizarContador();
+    if (players[current] && players[current].playVideo) {
+      players[current].seekTo(0);
+      players[current].playVideo();
+    }
+  }
+
+  function moverCarrusel(dir) { irA(current + dir); }
+
+  // Swipe táctil
+  var touchStartX = 0;
+  document.addEventListener('DOMContentLoaded', function() {
+    var track = document.getElementById('carruselTrack');
+    if (track) {
+      track.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, {passive:true});
+      track.addEventListener('touchend', function(e) {
+        var diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) moverCarrusel(diff > 0 ? 1 : -1);
+      });
+    }
+  });
+</script>
+</body>
+</html>
